@@ -40,7 +40,7 @@
                                 <td>${item.cantidad}</td>
                                 <td>
                                     <form method="POST" action="EliminarCarritoController">
-                                          <input type="hidden" name="pedido_id" value="${item.productoId}">
+                                        <input type="hidden" name="pedido_id" value="${item.id}">
                                         <button type="submit" class="btn btn-danger btn-user btn-block m-1"> 
                                             <i class="bi bi-trash3"></i>
                                         </button>

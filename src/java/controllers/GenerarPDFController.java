@@ -10,42 +10,37 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import dao.CarritoDAO; // Asegúrate de importar tu DAO
+import dao.CarritoDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 import models.Carrito;
 
 @WebServlet(name = "GenerarPDFController", urlPatterns = {"/GenerarPDFController"})
 public class GenerarPDFController extends HttpServlet {
 
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Integer userId = (Integer) session.getAttribute("userId");
+    HttpSession session = request.getSession();
+        CarritoDAO cart = (CarritoDAO) session.getAttribute("cart");
 
-        CarritoDAO cartDAO = new CarritoDAO(); // Crea una instancia de tu DAO
-        List<Carrito> cartItems = null;
-
-        // Si el usuario está autenticado, obtener los items del carrito
-        if (userId != null) {
-            try {
-                cartItems = cartDAO.getItemsByUserId(userId); // Método para obtener los items del carrito del usuario
-            } catch (SQLException e) {
-                e.printStackTrace();
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al acceder a los datos del carrito.");
-                return;
-            }
-        }
-
-        // Configuración de la respuesta para el PDF
         response.setContentType("application/pdf");
         response.setHeader("Content-Disposition", "attachment; filename=\"pedido.pdf\"");
 
@@ -67,10 +62,10 @@ public class GenerarPDFController extends HttpServlet {
             table.addCell("Cantidad");
             table.addCell("Subtotal");
 
-            if (cartItems != null && !cartItems.isEmpty()) {
+            if (cart != null && !cart.getItems().isEmpty()) {
                 double totalPedido = 0;
 
-                for (Carrito item : cartItems) {
+                for (Carrito item : cart.getItems()) {
                     double subtotal = item.getPrecio() * item.getCantidad();
                     totalPedido += subtotal;
 
@@ -105,6 +100,7 @@ public class GenerarPDFController extends HttpServlet {
 
     @Override
     public String getServletInfo() {
-        return "Controlador para generar PDF del pedido";
+        return "Short description";
     }
+
 }
