@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+.font{
+    font-family: "Alex Brush", cursive;
+}
+a{
+    text-decoration: none;
+}
+.container-home{
+    background-image: url(../img/Home/container_home.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    flex-direction: column;
+}
