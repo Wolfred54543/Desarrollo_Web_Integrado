@@ -36,5 +36,4 @@ public class Login {
         }
         return Validar;
     }
-    
 }

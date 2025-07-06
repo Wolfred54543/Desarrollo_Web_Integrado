@@ -8,9 +8,10 @@
         <%-- Nav Start --%>
             <%@include file="componentes/nav.jsp"%>
         <%-- Nav End --%>
-       <section class="product spad mt-4">
+        <section class="product spad mt-4">
             <div class="container">
                 <div class="row">
+<<<<<<< HEAD
                     <%-- Producto 1 --%>
                     <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                         <form action="añadirAlCarrito.jsp" method="post">
@@ -26,6 +27,87 @@
                                 </div>
                             </div>
                         </form>
+=======
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                      <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                        <div class="card">
+                            <img src="img/Home/container_menu_food_1.jpg" class="card-img-top">
+                            <div class="card-body text-center">
+                                <h6 class="card-title"><a href="#">Rocoto Relleno</a></h6>
+                                <div>S/12.00</div>
+                                <a href="#" class="btn btn-outline-secondary">Añadir al Carrito</a>
+                            </div>
+                        </div>
+>>>>>>> 56ac2d0fa54c9ea6579a1f9532eac9f887b6c150
                     </div>
 
                     <%-- Producto 2 --%>
@@ -52,7 +134,4 @@
             <%@include file="componentes/footer.jsp"%>
         <%-- Footer End --%>
     </body>
-        <%-- Script Start --%>
-            <%@include file="componentes/script.jsp"%>
-        <%-- Script End --%>
 </html>

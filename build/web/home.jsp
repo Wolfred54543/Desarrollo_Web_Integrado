@@ -94,9 +94,9 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-            <%-- Footer Start --%>
-                <%@include file="componentes/footer.jsp"%>
-            <%-- Footer End --%>
+        <%-- Footer Start --%>
+            <%@include file="componentes/footer.jsp"%>
+        <%-- Footer End --%>
     </body>
         <%-- Script Start --%>
             <%@include file="componentes/script.jsp"%>

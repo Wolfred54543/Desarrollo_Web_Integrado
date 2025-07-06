@@ -38,7 +38,10 @@
               <div class="nav-link"><a href="" class="text-white"><i class="bi bi-facebook text-white fs-5"></i></a></div> 
           </li>
         </ul>
+<<<<<<< HEAD
             <a href="car_list.jsp"><i class="bi bi-bag-fill text-white my-1 mx-2 align-items-center"></i></a>
+=======
+>>>>>>> 56ac2d0fa54c9ea6579a1f9532eac9f887b6c150
             <a href="orders.jsp" class="d-flex text-white my-1 mx-2 align-items-center"><i class="bi bi-list-ol text-white fs-5 mx-1"></i>Pedidos</a>
             <a href="" class="d-flex text-white my-1 mx-2 align-items-center"><i class="bi bi-person-circle text-white fs-5 mx-1"></i>Mi Cuenta</a>
     </div>

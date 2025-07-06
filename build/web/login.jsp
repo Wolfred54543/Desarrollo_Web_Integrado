@@ -12,11 +12,11 @@
     </head>
     
     <body>
-        <div class="container-fluid container-bg align-content-start">
+        <div class="container-fluid container-bg align-content-center">
             <div class="">
                 <div class="text-white text-center">          
-                    <img src="img/Logo/logo.webp" width="200" alt="logo" class="img-fluid">
-                    <h2 class="font">Food Mastering</h2>
+                    <img src="img/Logo/logo.webp" width="300" alt="logo" class="img-fluid">
+                    <h1 class="font">Food Mastering</h1>
                 </div>
             </div>
             

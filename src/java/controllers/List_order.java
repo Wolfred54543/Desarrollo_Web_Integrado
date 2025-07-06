@@ -15,7 +15,7 @@ public class List_order {
         try {
             con = Conexion.conectar();
             stmt = con.createStatement();
-            String sql = "SELECT menu_id, menu_nombre, menu_precio, menu_foto FROM menus";
+            String sql = "SELECT menu_id, menu_nombre, menu_precio, menu_foto FROM menus"; // Ajusta según tu tabla
             rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
