@@ -7,39 +7,26 @@
 
     Connection conn = null;
     PreparedStatement pstmt = null;
-    boolean exito = false;
 
     try {
+        // Usar la clase de conexión para obtener la conexión
         conn = Conexion.conectar();
+
+        // Consulta SQL para insertar en la tabla menu_carrito
         String sql = "INSERT INTO menu_carrito (carrito_nombre, carrito_precio, carrito_foto) VALUES (?, ?, ?)";
         pstmt = conn.prepareStatement(sql);
         pstmt.setString(1, carritoNombre);
         pstmt.setString(2, carritoPrecio);
         pstmt.setString(3, carritoFoto);
 
+        // Ejecutar la consulta
         pstmt.executeUpdate();
-        exito = true;
+        out.println("Producto añadido al carrito exitosamente.");
     } catch (SQLException e) {
         e.printStackTrace();
+        out.println("Error al añadir producto al carrito: " + e.getMessage());
     } finally {
         if (pstmt != null) try { pstmt.close(); } catch (SQLException e) {}
         if (conn != null) try { conn.close(); } catch (SQLException e) {}
     }
 %>
-
-<script>
-    <%
-        if (exito) {
-    %>
-        alert("Producto añadido al carrito exitosamente.");
-        setTimeout(function() {
-            window.location.href = "menu.jsp";
-        }, 1000);
-    <%
-        } else {
-    %>
-        alert("Error al añadir el producto al carrito.");
-    <%
-        }
-    %>
-</script>

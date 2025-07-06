@@ -1,16 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
 <%@page import="conexion.Conexion"%>
-<%@page import="java.io.*, controllers.Car_list" %>
-<%@page import="java.util.List"%>
-<%@page import="java.io.*, controllers.CarItem"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Carrito</title>
         <%@include file="componentes/head.jsp"%>
-        <link rel="stylesheet" href="css/car_list.css"/>
     </head>
     <body class="bg-dark">
          <%-- Nav Start --%>
@@ -33,13 +29,15 @@
                         Connection conn = null;
                         PreparedStatement pstmt = null;
                         ResultSet rs = null;
-                        int i=1;
+
                         try {
+                            // Obtener la conexión de la clase de conexión
                             conn = Conexion.conectar();
                             String sql = "SELECT carrito_id, carrito_nombre, carrito_precio, carrito_foto FROM menu_carrito";
                             pstmt = conn.prepareStatement(sql);
                             rs = pstmt.executeQuery();
 
+                            // Verificar si hay resultados
                             if (!rs.isBeforeFirst()) {
                                 out.println("<tr><td colspan='4' class='text-center'>No hay productos en el carrito.</td></tr>");
                             } else {
@@ -50,15 +48,15 @@
                                     String foto = rs.getString("carrito_foto");
                     %>
                     <tr>
-                        <td><%= i++ %></td>
+                        <td><%= id %></td>
                         <td>
-                            <img src="img/Home/<%= foto %>" class="product-image"> 
+                            <img src="<%= foto %>" class="product-image" style="width: 50px; height: auto;"> 
                             <%= nombre %>
                         </td>
-                        <td>S/ <%= precio %></td>
+                        <td>S/<%= precio %></td>
                         <td>
-                            <form method="POST" action="eliminar_carrito.jsp">
-                                <input type="hidden" name="pedido_id" value="<%=id %>">
+                            <form method="POST" action="eliminar.jsp">
+                                <input type="hidden" name="platos_id" value="<%= id %>">
                                 <button type="submit" class="btn btn-danger btn-user btn-block m-1"> 
                                     <i class="bi bi-trash3"></i>
                                 </button>
@@ -66,8 +64,8 @@
                         </td>  
                     </tr>
                     <%
-                                }
-                            } 
+                                } // Fin del while
+                            } // Fin del else
                         } catch (SQLException e) {
                             e.printStackTrace();
                             out.println("Error al recuperar los productos del carrito.");
@@ -81,9 +79,6 @@
             </table>
         </div>
             <hr>
-            <form action="procesar_pedido.jsp" method="POST" class="form text-center">
-                <button type="submit" class="btn btn-outline-warning">Procesar Pedido</button>
-            </form>
         <%-- Footer Start --%>
             <%@include file="componentes/footer.jsp"%>
         <%-- Footer End --%>

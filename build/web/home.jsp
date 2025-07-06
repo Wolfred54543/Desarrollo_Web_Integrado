@@ -1,10 +1,3 @@
-<%
-    String rol = (String) session.getAttribute("rol");
-    if (rol == null || !rol.equals("cliente")) {
-        response.sendRedirect("login.jsp");
-        return;
-    }
-%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
