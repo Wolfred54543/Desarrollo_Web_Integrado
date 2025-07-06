@@ -1,0 +1,23 @@
+.container-bg{
+    background-image: url('../img/login_img/bg_login.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+div .box{
+    background-color: rgba(255, 255, 255, 0.39);
+    min-height: 400px;
+}
+form label{
+    font-size: 20px;
+}
+form h1{
+    font-size: 25px;
+    font-weight: 1000;
+}
+div p{
+    font-size: 20px;
+}
+div img{
+    max-width: 250px;
+}
