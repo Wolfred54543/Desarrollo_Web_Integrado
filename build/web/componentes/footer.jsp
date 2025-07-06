@@ -13,9 +13,9 @@
                 <div class="col-md-4 my-3 text-center">
                     <h2 class="text-warning">Suscribirse</h2>
                     <p>Recibe noticias, promociones y ofertas.</p>
-                    <form class="d-flex justify-content-center">
+                    <form action="" class="d-flex justify-content-center">
                         <input type="email" class="form-control me-2" placeholder="Email" aria-label="Email">
-                        <button class="btn btn-warning" type="submit">Enviar</button>
+                        <a href="#" class="btn btn-warning">Enviar</a>
                     </form>
                 </div>
                 <div class="col-md-4 my-3 text-center">

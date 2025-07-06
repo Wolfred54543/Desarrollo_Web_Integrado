@@ -70,4 +70,7 @@
         </div>
     <%@include file="componentes/footer.jsp"%>
     </body>
+        <%-- Script Start --%>
+            <%@include file="componentes/script.jsp"%>
+        <%-- Script End --%>
 </html>

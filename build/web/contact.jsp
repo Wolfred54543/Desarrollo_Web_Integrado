@@ -52,4 +52,7 @@
             <%@include file="componentes/footer.jsp"%>
         <%-- Footer End --%>
     </body>
+        <%-- Script Start --%>
+            <%@include file="componentes/script.jsp"%>
+        <%-- Script End --%>
 </html>

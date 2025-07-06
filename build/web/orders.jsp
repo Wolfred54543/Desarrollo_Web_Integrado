@@ -66,5 +66,12 @@
             </tbody>
         </table>
         </div>
+            <hr>
+        <%-- Footer Start --%>
+            <%@include file="componentes/footer.jsp"%>
+        <%-- Footer End --%>
     </body>
+        <%-- Script Start --%>
+            <%@include file="componentes/script.jsp"%>
+        <%-- Script End --%>
 </html>
