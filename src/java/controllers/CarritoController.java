@@ -30,7 +30,7 @@ public class CarritoController extends HttpServlet {
 String nombre = request.getParameter("carrito_nombre");
     String precio = request.getParameter("carrito_precio");
     String foto = request.getParameter("carrito_foto");
-    String idParam = request.getParameter("carrito_id"); // Modificado
+    String idParam = request.getParameter("carrito_id");
 
     if (idParam == null || idParam.isEmpty()) {
         throw new IllegalArgumentException("El ID del producto no puede ser nulo o vacío.");

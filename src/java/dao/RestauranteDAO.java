@@ -33,8 +33,8 @@ public class RestauranteDAO {
             statement.setString(2, restaurante.getDireccion());
             statement.setString(3, restaurante.getTelefono());
             statement.setString(4, restaurante.getFoto());
-            statement.setDouble(5, restaurante.getLatitud());   // Asignar latitud
-            statement.setDouble(6, restaurante.getLongitud());  // Asignar longitud
+            statement.setDouble(5, restaurante.getLatitud());  
+            statement.setDouble(6, restaurante.getLongitud()); 
             statement.executeUpdate();
         }
     }
@@ -52,8 +52,8 @@ public class RestauranteDAO {
                 String direccion = resultSet.getString("direccion");
                 String telefono = resultSet.getString("telefono");
                 String foto = resultSet.getString("foto");
-                double latitud = resultSet.getDouble("latitud");      // Obtener latitud
-                double longitud = resultSet.getDouble("longitud");    // Obtener longitud
+                double latitud = resultSet.getDouble("latitud");      
+                double longitud = resultSet.getDouble("longitud");   
                 Restaurante restaurante = new Restaurante(id, nombre, direccion, telefono, foto, latitud, longitud);
                 restaurantes.add(restaurante);
             }
@@ -73,8 +73,8 @@ public class RestauranteDAO {
                         resultSet.getString("direccion"),
                         resultSet.getString("telefono"),
                         resultSet.getString("foto"),
-                        resultSet.getDouble("latitud"),      // Obtener latitud
-                        resultSet.getDouble("longitud")      // Obtener longitud
+                        resultSet.getDouble("latitud"),      
+                        resultSet.getDouble("longitud")    
                     );
                 }
             }
@@ -97,8 +97,8 @@ public class RestauranteDAO {
             statement.setString(2, restaurante.getDireccion());
             statement.setString(3, restaurante.getTelefono());
             statement.setString(4, restaurante.getFoto());
-            statement.setDouble(5, restaurante.getLatitud());   // Asignar latitud
-            statement.setDouble(6, restaurante.getLongitud());  // Asignar longitud
+            statement.setDouble(5, restaurante.getLatitud());   
+            statement.setDouble(6, restaurante.getLongitud());  
             statement.setInt(7, restaurante.getId());
             statement.executeUpdate();
         }
@@ -115,4 +115,23 @@ public class RestauranteDAO {
         }
         return false;
     }
+        public Restaurante obtenerPorId(int id) throws SQLException {
+        String sql = "SELECT * FROM Restaurantes WHERE restaurante_id = ?";
+        try (Connection conn = DatabaseConnection.getInstancia().getConexion();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                Restaurante restaurante = new Restaurante();
+                restaurante.setId(rs.getInt("restaurante_id"));
+                restaurante.setNombre(rs.getString("nombre"));
+                restaurante.setLatitud(rs.getDouble("latitud"));
+                restaurante.setLongitud(rs.getDouble("longitud"));
+             
+                return restaurante;
+            }
+        }
+        return null;
+    }
+
 }

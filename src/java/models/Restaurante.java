@@ -9,6 +9,10 @@ public class Restaurante {
     private double latitud;    // Nueva variable para latitud
     private double longitud;   // Nueva variable para longitud
 
+        // Constructores
+    public Restaurante() {
+
+    }
     // Constructores
     public Restaurante(int id, String nombre, String direccion, String telefono, String foto) {
         this.id = id;

@@ -1,47 +1,50 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.sql.*;
 import dao.CarritoDAO;
 
 @WebServlet(name = "EliminarCarritoController", urlPatterns = {"/EliminarCarritoController"})
 public class EliminarCarritoController extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+ try {
+            // Obtener el ID del pedido desde la solicitud
             int pedidoId = Integer.parseInt(request.getParameter("pedido_id"));
-           HttpSession session = request.getSession();
-           CarritoDAO cart = (CarritoDAO) session.getAttribute("cart");
+            HttpSession session = request.getSession();
 
-           if (cart != null) {
-//               cart.removeItemById(pedidoId);
-               session.setAttribute("cart", cart);
-           }
-           response.sendRedirect("cart_list.jsp");
+            // Obtener el DAO del carrito de la sesión
+            CarritoDAO cartDAO = (CarritoDAO) session.getAttribute("cart");
+
+            if (cartDAO == null) {
+                cartDAO = new CarritoDAO();
+                session.setAttribute("cart", cartDAO);
+            }
+
+            // Eliminar el artículo del carrito
+            cartDAO.removeItemById(pedidoId);
+
+            // Redirigir directamente a car_lis.jsp
+            response.sendRedirect(request.getContextPath() + "/cart_list.jsp");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al eliminar el artículo del carrito.");
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID de producto no válido.");
         }
-    
+    }
 
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Controlador para eliminar artículos del carrito";
     }
-
 }

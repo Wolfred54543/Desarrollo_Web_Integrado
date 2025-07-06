@@ -1,6 +1,6 @@
 package controllers;
 
-
+import dao.RestauranteDAO;
 import dao.ProductoDAO;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import models.Producto;
+import models.Restaurante;
 import utils.DatabaseConnection;
 
 @WebServlet(name = "ListarProductoPorRestauranteController", urlPatterns = {"/ListarProductoPorRestauranteController"})
@@ -25,34 +26,33 @@ public class ListarProductoPorRestauranteController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String idParam = request.getParameter("id");
+        String idParam = request.getParameter("id");
         List<Producto> productos = null;
 
         if (idParam != null && !idParam.isEmpty()) {
             try {
                 int restauranteId = Integer.parseInt(idParam);  
-                
+
                 ProductoDAO productoDao = new ProductoDAO();
+                RestauranteDAO restauranteDao = new RestauranteDAO();
+
                 productos = productoDao.obtenerProductosPorRestaurante(restauranteId);
+                Restaurante restaurante = restauranteDao.obtenerPorId(restauranteId);
 
                 request.setAttribute("productos", productos);
+                request.setAttribute("restaurante", restaurante); // Para el mapa
                 request.getRequestDispatcher("productos.jsp").forward(request, response);
             } catch (NumberFormatException e) {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID de restaurante no válido.");
             } catch (SQLException e) {
                 e.printStackTrace();
-                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al obtener productos.");
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al obtener productos o restaurante.");
             }
         } else {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "ID de restaurante no proporcionado.");
         }
     }
 
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
 
     @Override
     public String getServletInfo() {
