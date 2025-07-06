@@ -36,7 +36,13 @@ public class ActualizarRestauranteController extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String foto = request.getParameter("foto");
         
+        
+        double latitud = Double.parseDouble(request.getParameter("latitud"));
+        double longitud = Double.parseDouble(request.getParameter("longitud"));
+        
         Restaurante restaurante = new Restaurante(id, nombre, direccion, telefono, foto);
+        restaurante.setLatitud(latitud);
+        restaurante.setLongitud(longitud);
 
         try {
             RestauranteDAO dao = new RestauranteDAO(); // Usa la conexión Singleton internamente
