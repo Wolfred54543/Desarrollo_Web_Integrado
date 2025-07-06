@@ -1,0 +1,7 @@
+Librerías para hacer el mapeo de los restaurantes de forma dinámica / se usa un JavaScript para traer los parametros:
+
+    <!-- Custom styles for tables -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
