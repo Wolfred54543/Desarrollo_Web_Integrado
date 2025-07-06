@@ -35,7 +35,12 @@ public class CrearRestaurantController extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String foto = request.getParameter("foto");
         
-        Restaurante restaurante = new Restaurante(0, nombre, direccion, telefono, foto);
+        // Obtener las coordenadas
+        double latitud = Double.parseDouble(request.getParameter("latitud"));
+        double longitud = Double.parseDouble(request.getParameter("longitud"));
+        
+        // Crear el objeto Restaurante con las coordenadas
+        Restaurante restaurante = new Restaurante(0, nombre, direccion, telefono, foto, latitud, longitud);
 
         try {
             RestauranteDAO dao = new RestauranteDAO(); // DAO obtiene conexión por sí solo (Singleton)

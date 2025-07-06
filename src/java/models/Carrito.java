@@ -1,14 +1,19 @@
 package models;
 
 public class Carrito {
-    private int id;
+    private int id; // ID del carrito
+    private int productoId; // ID del producto
+    private int restauranteId;
     private String nombre;
     private double precio;
     private String foto;
     private int cantidad;
+    
+    public Carrito() {}
 
-    public Carrito(int id, String nombre, double precio, String foto, int cantidad) {
-        this.id = id;
+    public Carrito(int productoId, int restauranteId, String nombre, double precio, String foto, int cantidad) {
+        this.productoId = productoId;
+        this.restauranteId = restauranteId;
         this.nombre = nombre;
         this.precio = precio;
         this.foto = foto;
@@ -22,6 +27,22 @@ public class Carrito {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getProductoId() {
+        return productoId;
+    }
+
+    public void setProductoId(int productoId) {
+        this.productoId = productoId;
+    }
+    
+    public int getRestauranteId() {
+        return restauranteId;
+    }
+
+    public void setRestauranteId(int restauranteId) {
+        this.restauranteId = restauranteId;
     }
     
     public String getNombre() {
@@ -53,7 +74,14 @@ public class Carrito {
     }
 
     public void setCantidad(int cantidad) {
+        if (cantidad < 0) {
+            throw new IllegalArgumentException("La cantidad no puede ser negativa.");
+        }
         this.cantidad = cantidad;
+    }
+
+    public double getTotalPrice() {
+        return precio * cantidad;
     }
     
 }

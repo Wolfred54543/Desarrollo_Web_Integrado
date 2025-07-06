@@ -47,7 +47,7 @@
                                                         <th>Email</th>
                                                         <th>Telefono</th>
                                                         <th>Rol</th>
-                                                        <th>Acciones</th>
+                                                        <!-- <th>Acciones</th>-->
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -59,6 +59,7 @@
                                                             <td>${usuario.email}</td>
                                                             <td>${usuario.telefono}</td>
                                                             <td>${usuario.rol}</td>
+                                                            <!--  
                                                             <td style="display: flex; width: 230px;">
                                                                 <form name="eliminar" action="EliminarRestauranteController" method="POST" style="margin-right: 10px;">
                                                                     <button type="submit" class="btn btn-danger btn-user"> 
@@ -72,7 +73,8 @@
                                                                     </button>
                                                                     <input type="hidden" name="id" value="${restaurante.id}">
                                                                 </form>                                             
-                                                            </td>                                       
+                                                            </td>
+                                                            -->                                   
                                                         </tr>
                                                     </c:forEach>
                                                 </tbody>
