@@ -7,15 +7,16 @@
     <head>
         <%-- Head Start --%>
             <%@include file="componentes/head.jsp"%>
+            <link rel="stylesheet" href="css/register.css"/>
         <%-- Head End --%>
     </head>
     
     <body>
-        <div class="container-fluid">
+        <div class="container-fluid container-bg align-content-center">
             
-            <div class="row justify-content-center m-4">
+            <div class="row justify-content-center">
                 <div class="col-lg-5 col-sm-10">
-                    <form action="register.jsp" method="POST" class="form-control p-5">
+                    <form action="register.jsp" method="POST" class="form-control form-bg text-white p-5">
                         <h3 class="text-center pb-3">REGISTRO</h3>
                         <div class="mb-3 row">
                             <div class="col-md-6">
@@ -52,7 +53,7 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button class="btn btn-primary mb-3" type="submit">Registrarse</button>
+                                <button class="btn btn-dark mb-3" type="submit">Registrarse</button>
                             </div>
                         <p class="text-center">Volver al <a href="login.jsp">Inicio de Sesion</a></p>
                     </form>
@@ -70,14 +71,14 @@
                             // Llamar a la clase Register para registrar el usuario
                             boolean registrado = Register.registrarUsuario(nombre, apellido, usuario, contrasenia, email, telefono);
                             if (registrado) {
-                                out.println("<div class='alert alert-success' role='alert'>Usuario Registrado exitosamente! <br> <a href='login.jsp' style='text-decoration: none;'>Iniciar Sesion</a></div>");
+                                out.println("<div class='alert alert-success' role='alert'>Usuario Registrado exitosamente!</div>");
                             } else {
                                 out.println("<div class='alert alert-danger' role='alert'>No se puede procesar el registro</div>");
                             }
                         }
                     %>
                 </div>
-            </div>
+            </div>   
         </div>
     </body>
 </html>

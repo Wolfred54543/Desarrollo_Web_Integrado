@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+.font{
+    font-family: "Alex Brush", cursive;
+}
+
+html, body {
+    height: 100%;
+    margin: 0; 
+    padding: 0;
+}
+
 a{
     text-decoration: none;
+    color: black;
 }
-form{
-    min-width: 300px;
+a:hover{
+    color: #dc3545;
 }
