@@ -6,14 +6,26 @@ public class Restaurante {
     private String direccion;
     private String telefono;
     private String foto;
+    private double latitud;    // Nueva variable para latitud
+    private double longitud;   // Nueva variable para longitud
 
-    // Constructor
+    // Constructores
     public Restaurante(int id, String nombre, String direccion, String telefono, String foto) {
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.foto = foto;
+    }
+    
+    public Restaurante(int id, String nombre, String direccion, String telefono, String foto, double latitud, double longitud) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.foto = foto;
+        this.latitud = latitud;          // Asignar latitud
+        this.longitud = longitud;        // Asignar longitud
     }
 
     // Getters y Setters
@@ -56,5 +68,20 @@ public class Restaurante {
     public void setFoto(String foto) {
         this.foto = foto;
     }
-    
+
+    public double getLatitud() {
+        return latitud;   // Getter para latitud
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;   // Setter para latitud
+    }
+
+    public double getLongitud() {
+        return longitud;  // Getter para longitud
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;  // Setter para longitud
+    }
 }

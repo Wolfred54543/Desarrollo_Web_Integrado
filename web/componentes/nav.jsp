@@ -1,4 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="totalProductos" value="0"/>
+<c:if test="${not empty cart.items}">
+    <c:forEach var="item" items="${cart.items}">
+        <c:set var="totalProductos" value="${totalProductos + item.cantidad}"/>
+    </c:forEach>
+</c:if>
 <!DOCTYPE html>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div class="container-fluid">
@@ -19,9 +26,6 @@
             <li class="nav-item">
               <a class="nav-link" href="ListarRestaurantController?destino=restaurantes">Restaurantes</a>
             </li>
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="">Metodos de Pago</a>
-            </li>-->
             <li>
               <div class="mx-3 text-white">
                   <img src="img/Logo/logo.webp" width="45" alt="logo">
@@ -38,7 +42,8 @@
               <div class="nav-link"><a href="" class="text-white"><i class="bi bi-facebook text-white fs-5"></i></a></div> 
           </li>
         </ul>
-            <a href="cart_list.jsp" class="text-white mx-4"><i class="bi bi-bag-fill text-white my-1 mx-1 align-items-center"></i>Mis Pedidos</a>
+            <a href="cart_list.jsp" class="text-white mx-4"><i class="bi bi-bag-fill text-white my-1 mx-1 align-items-center"></i>
+            Mis Pedidos <span class="badge bg-warning">${totalProductos}</span></a>
             <div class="dropdown me-5">
                 <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                   Mi Cuenta

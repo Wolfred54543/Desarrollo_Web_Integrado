@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <!-- Header -->
-        <%@include file="componentes/headerAdmin.jsp" %>
+    <%@include file="componentes/headerAdmin.jsp" %>
     <!-- End of Header -->
     
 <body id="page-top">
@@ -11,7 +11,7 @@
     <div id="wrapper">
         
         <!-- Menu -->
-              <%@include file="componentes/menuAdmin.jsp" %>
+        <%@include file="componentes/menuAdmin.jsp" %>
         <!-- End of Menu -->
   
         <!-- Content Wrapper -->
@@ -20,84 +20,108 @@
             <!-- Main Content -->
             <div id="content">
 
-        <!-- Navbar -->
-            <%@include file="componentes/navbarAdmin.jsp" %>
-        <!-- End of Navbar -->
+                <!-- Navbar -->
+                <%@include file="componentes/navbarAdmin.jsp" %>
+                <!-- End of Navbar -->
         
-    <!-- Begin Page Content -->
-    <div class="container-fluid">
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Registrar Nuevo Restaurante</h1>
-        </div>
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Registrar Nuevo Restaurante</h1>
+                    </div>
                     
-      <div class="container">
+                    <div class="container">
+                        <div class="card o-hidden border-0 shadow-lg my-5">
+                            <div class="card-body p-0">
+                                <!-- Nested Row within Card Body -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="p-5">
+                                            <form class="user" action="CrearRestaurantController" method="POST">
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-sm-6 mb-3">
+                                                        <input type="text" class="form-control form-control-user" name="nombre" placeholder="Nombre del Restaurante">
+                                                    </div>
+                                                    <div class="col-sm-6 mb-3">
+                                                        <input type="text" class="form-control form-control-user" name="direccion" placeholder="Dirección del Restaurante">
+                                                    </div>
+                                                    <div class="col-sm-6 mb-3">
+                                                        <input type="text" class="form-control form-control-user" name="telefono" placeholder="Teléfono del Restaurante">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-sm-6 mb-3">
+                                                        <label>Foto del Restaurante:</label>
+                                                        <input type="file" class="" name="foto">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row d-flex justify-content-center">
+                                                    <div class="col-sm-6 mb-3">
+                                                        <div id="map" style="height: 400px;"></div>
+                                                    </div>
+                                                </div>
+                                                <!-- Campos ocultos para latitud y longitud -->
+                                                <input type="hidden" id="latitud" name="latitud" />
+                                                <input type="hidden" id="longitud" name="longitud" />
 
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                <div class="row">
-                    <!--<div class="col-lg-5 d-none d-lg-block bg-register-image"></div>-->
-                    <div class="col-lg-12">
-                        <div class="p-5">
-                            <form class="user" action="CrearRestaurantController" method="POST">
-                                <div class="form-group row d-flex justify-content-center">
-                                    <div class="col-sm-6 mb-3">
-                                        <input type="text" class="form-control form-control-user" name="nombre"
-                                            placeholder="Nombre del Restaurante">
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <input type="text" class="form-control form-control-user" name="direccion"
-                                            placeholder="Direccion del Restaurante">
-                                    </div>
-                                    <div class="col-sm-6 mb-3">
-                                        <input type="text" class="form-control form-control-user" name="telefono"
-                                            placeholder="Telefono del Restaurante">
-                                    </div>
-                                </div>
-                                    <div class="form-group row d-flex justify-content-center">
-                                        <div class="col-sm-6 mb-3">
-                                            <label>Foto del Restaurante:</label>
-                                            <input type="file" class="" name="foto">
+                                                <button type="submit" class="btn btn-dark btn-user btn-block">
+                                                    Crear Restaurante 
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
-                                
-                                <button type="submit" class="btn btn-dark btn-user btn-block">
-                                    Crear Restaurante 
-                                </button>
-                            </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </div> 
+                    <!-- End Page Content -->
                 </div>
-            </div>
-        </div>
-
-    </div> 
-                <!-- End Page Content -->
-</div>
                 
-            <!-- Footer -->
+                <!-- Footer -->
                 <%@include file="componentes/footerAdmin.jsp" %>
-            <!-- End of Footer -->
-
+                <!-- End of Footer -->
+            </div>
+            <!-- End of Content Wrapper -->
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
+        <!-- Logout Modal-->
         <%@include file="componentes/logoutAdmin.jsp" %>
-    <!-- End of Scripts -->
+        <!-- End of Scripts -->
     
         <!-- Scripts -->
-            <%@include file="componentes/scriptAdmin.jsp" %>
+        <%@include file="componentes/scriptAdmin.jsp" %>
         <!-- End of Scripts -->
     </div>
+    
+    <script>
+        // Inicializa el mapa
+        var map = L.map('map').setView([-16.4090, -71.5370], 13); // Coordenadas de Arequipa, Perú
+
+        // Capa de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Marcador inicial
+        var marker = L.marker([-16.4090, -71.5370]).addTo(map);
+        marker.bindPopup("<b>¡Hola!</b><br>Este es el restaurante.").openPopup();
+
+        // Evento de clic en el mapa
+        map.on('click', function(e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+            document.getElementById('latitud').value = lat; // Actualiza el campo de latitud
+            document.getElementById('longitud').value = lng; // Actualiza el campo de longitud
+            marker.setLatLng([lat, lng]); // Mueve el marcador
+        });
+    </script>
 </body>
 </html>

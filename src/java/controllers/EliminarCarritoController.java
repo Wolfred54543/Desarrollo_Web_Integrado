@@ -32,7 +32,7 @@ public class EliminarCarritoController extends HttpServlet {
            CarritoDAO cart = (CarritoDAO) session.getAttribute("cart");
 
            if (cart != null) {
-               cart.removeItemById(pedidoId);
+//               cart.removeItemById(pedidoId);
                session.setAttribute("cart", cart);
            }
            response.sendRedirect("cart_list.jsp");

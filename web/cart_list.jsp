@@ -22,7 +22,7 @@
                         <th>Nº</th>
                         <th>Plato</th>
                         <th>Precio</th>
-                        <th>Cantidad</th> <!-- Nueva columna para cantidad -->
+                        <th>Cantidad</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -37,7 +37,7 @@
                                     ${item.nombre}
                                 </td>
                                 <td>S/ ${item.precio}</td>
-                                <td>${item.cantidad}</td> <!-- Mostrar cantidad -->
+                                <td>${item.cantidad}</td>
                                 <td>
                                     <form method="POST" action="EliminarCarritoController">
                                         <input type="hidden" name="pedido_id" value="${item.id}">
@@ -49,6 +49,15 @@
                             </tr>
                             <c:set var="counter" value="${counter + 1}"/>
                         </c:forEach>
+                        
+                        <!-- Total de productos -->
+                        <c:set var="totalProductos" value="0"/>
+                        <c:forEach var="item" items="${cart.items}">
+                            <c:set var="totalProductos" value="${totalProductos + item.cantidad}"/>
+                        </c:forEach>
+                        <div class="text-white mt-3">
+                            <strong>Total de productos en el carrito: ${totalProductos}</strong>
+                        </div>
                     </c:if>
                     <c:if test="${empty cart.items}">
                         <tr>
@@ -59,7 +68,7 @@
             </table>
         </div>
         <hr>
-        <form action="procesar_pedido.jsp" method="POST" class="form text-center">
+        <form action="metodos_pago.jsp" method="POST" class="form text-center">
             <button type="submit" class="btn btn-outline-warning">Procesar Pedido</button>
         </form>
         <%-- Footer Start --%>
