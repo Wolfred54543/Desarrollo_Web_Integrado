@@ -59,7 +59,7 @@
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-sm-6 mb-3">
                                             <label>Foto del Restaurante</label>
-                                            <input type="file" class="" name="foto">
+                                            <input type="file" class="form-control form-control-file" name="foto">
                                         </div>
                                     </div>
                                     <!-- Campos ocultos para latitud y longitud -->
@@ -68,7 +68,7 @@
                                     
                                     <div class="form-group row d-flex justify-content-center">
                                         <div class="col-sm-6 mb-3">
-                                            <label>Ubicación en el Mapa:</label>
+                                            <label>Seleccione la nueva ubicacion del restaurante en el mapa:</label>
                                             <div id="map" style="height: 400px;"></div>
                                         </div>
                                     </div>

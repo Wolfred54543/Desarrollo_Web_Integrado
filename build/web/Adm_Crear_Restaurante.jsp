@@ -53,11 +53,12 @@
                                                 <div class="form-group row d-flex justify-content-center">
                                                     <div class="col-sm-6 mb-3">
                                                         <label>Foto del Restaurante:</label>
-                                                        <input type="file" class="" name="foto">
+                                                        <input type="file" class="form-control form-control-file" name="foto">
                                                     </div>
                                                 </div>
-                                                <div class="form-group row d-flex justify-content-center">
+                                                <div class="form-group row d-flex justify-content-center">                                                   
                                                     <div class="col-sm-6 mb-3">
+                                                        <label>Seleccione la ubicacion del restaurante en el mapa:</label>
                                                         <div id="map" style="height: 400px;"></div>
                                                     </div>
                                                 </div>
@@ -104,23 +105,23 @@
         // Inicializa el mapa
         var map = L.map('map').setView([-16.4090, -71.5370], 13); // Coordenadas de Arequipa, Perú
 
-        // Capa de OpenStreetMap
+        // Capa de OpenStreetMap que trae el mapa
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
         // Marcador inicial
-        var marker = L.marker([-16.4090, -71.5370]).addTo(map);
-        marker.bindPopup("<b>¡Hola!</b><br>Este es el restaurante.").openPopup();
+        var marker = L.marker([-16.4090, -71.5370]).addTo(map); // El marcador tambien inicializa en Arequipa, Perú
+        marker.bindPopup("<b>¡Hola!</b><br>Seleccione la ruta del restaurante").openPopup();
 
-        // Evento de clic en el mapa
+        // Evento de clic en el mapa para poder definir la posicion
         map.on('click', function(e) {
-            var lat = e.latlng.lat;
-            var lng = e.latlng.lng;
-            document.getElementById('latitud').value = lat; // Actualiza el campo de latitud
-            document.getElementById('longitud').value = lng; // Actualiza el campo de longitud
-            marker.setLatLng([lat, lng]); // Mueve el marcador
+            var lat = e.latlng.lat; //latitud
+            var lng = e.latlng.lng; //longitud
+            document.getElementById('latitud').value = lat; // Actualiza el campo de latitud para mandarlo a la base de datos
+            document.getElementById('longitud').value = lng; // Actualiza el campo de longitud para mandarlo a la base de datos
+            marker.setLatLng([lat, lng]); // Mueve el marcador y va actualizando los campos de la longitud y latitud
         });
     </script>
 </body>

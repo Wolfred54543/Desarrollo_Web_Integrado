@@ -26,6 +26,9 @@
             <li class="nav-item">
               <a class="nav-link" href="ListarRestaurantController?destino=restaurantes">Restaurantes</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="detalle_pedido.jsp">Detalle de Pedido</a>
+            </li>
             <li>
               <div class="mx-3 text-white">
                   <img src="img/Logo/logo.webp" width="45" alt="logo">

@@ -29,8 +29,8 @@ public class CarritoDAO {
                         updateStmt.executeUpdate();
                     }
                 } else {
-                    // Insertar nuevo producto en el carrito
-                    String insertSql = "INSERT INTO Carrito (producto_id, restaurante_id, nombre, precio, foto, cantidad) VALUES (?, ?, ?, ?, ?, ?)";
+                    // Insertar nuevo producto en el carrito con datos extendidos
+                    String insertSql = "INSERT INTO Carrito (producto_id, restaurante_id, nombre, precio, foto, cantidad, nombre_restaurante, latitud, longitud) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     try (PreparedStatement insertStmt = connection.prepareStatement(insertSql)) {
                         insertStmt.setInt(1, item.getProductoId());
                         insertStmt.setInt(2, item.getRestauranteId());
@@ -38,6 +38,9 @@ public class CarritoDAO {
                         insertStmt.setDouble(4, item.getPrecio());
                         insertStmt.setString(5, item.getFoto());
                         insertStmt.setInt(6, item.getCantidad());
+                        insertStmt.setString(7, item.getNombreRestaurante());
+                        insertStmt.setDouble(8, item.getLatitud());
+                        insertStmt.setDouble(9, item.getLongitud());
                         insertStmt.executeUpdate();
                     }
                 }
@@ -59,6 +62,9 @@ public class CarritoDAO {
                 item.setPrecio(rs.getDouble("precio"));
                 item.setFoto(rs.getString("foto"));
                 item.setCantidad(rs.getInt("cantidad"));
+                item.setNombreRestaurante(rs.getString("nombre_restaurante"));
+                item.setLatitud(rs.getDouble("latitud"));
+                item.setLongitud(rs.getDouble("longitud"));
                 items.add(item);
             }
         }
@@ -129,6 +135,9 @@ public class CarritoDAO {
                 item.setPrecio(rs.getDouble("precio"));
                 item.setFoto(rs.getString("foto"));
                 item.setCantidad(rs.getInt("cantidad"));
+                item.setNombreRestaurante(rs.getString("nombre_restaurante"));
+                item.setLatitud(rs.getDouble("latitud"));
+                item.setLongitud(rs.getDouble("longitud"));
                 items.add(item);
             }
         }

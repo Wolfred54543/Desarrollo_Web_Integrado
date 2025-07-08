@@ -8,6 +8,9 @@ public class Carrito {
     private double precio;
     private String foto;
     private int cantidad;
+    private String nombreRestaurante;
+    private double latitud;    // Nueva variable para latitud
+    private double longitud;   // Nueva variable para longitud
     
     public Carrito() {}
 
@@ -83,5 +86,28 @@ public class Carrito {
     public double getTotalPrice() {
         return precio * cantidad;
     }
-    
+
+    public String getNombreRestaurante() {
+        return nombreRestaurante;
+    }
+
+    public void setNombreRestaurante(String nombreRestaurante) {
+        this.nombreRestaurante = nombreRestaurante;
+    }
+
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
 }
